@@ -118,6 +118,15 @@ export default function Home() {
           loadedImages[0].w > loadedImages[0].h ? "landscape" : "portrait",
         unit: "px",
         format: [loadedImages[0].w, loadedImages[0].h],
+        putOnlyUsedFonts: true,
+      });
+
+      // Clear PDF metadata to avoid any branding
+      pdf.setProperties({
+        title: "",
+        subject: "",
+        author: "",
+        creator: "",
       });
 
       loadedImages.forEach((img, i) => {
